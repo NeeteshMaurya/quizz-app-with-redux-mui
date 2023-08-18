@@ -74,18 +74,22 @@ const Questions = () => {
   }
 
   return (
-    <Box>
-      <Typography variant="h4">Question {questionIndex + 1}</Typography>
-      <Typography variant="h6" marginTop='15px'>{response.results[questionIndex].question}</Typography>
-      {options.map((data, index)=>(
-        <Box marginTop='15px' >
-          <Button onClick={handleAnswerClick} variant="contained">{data}</Button>
+    <div style={{display:'flex',justifyContent:'center'}}>
+      <div style={{border:'1px solid white',width:'450px',zIndex:'3',boxShadow:'5px 5px 5px 5px #000000'}}>
+      <Box sx={{margin:'20px'}}>
+        <Typography variant="h4">Question {questionIndex + 1}</Typography>
+        <Typography variant="h6" marginTop='15px'>{response.results[questionIndex].question}</Typography>
+        {options.map((data, index)=>(
+          <Box marginTop='15px' >
+            <Button onClick={handleAnswerClick} variant="contained">{data}</Button>
+          </Box>
+        ))}
+        <Box marginTop='15px'>
+          <Typography>Score {score}/{response.results.length}</Typography>
         </Box>
-      ))}
-      <Box marginTop='15px'>
-        <Typography>Score {score}/{response.results.length}</Typography>
-      </Box>
     </Box>
+      </div>
+    </div>
   )
 }
 
